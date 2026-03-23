@@ -20,10 +20,12 @@
     <tbody>
         @forelse($alunos as $aluno)
             <tr>
-                <td>{{ $alunos->id }}</td>
-                <td>{{ $alunos->nome}}</td>
-                <td>{{ $alunos->email}}</td>
-                <td></td>
+                <td>{{ $aluno->id }}</td>
+                <td>{{ $aluno->nome}}</td>
+                <td>{{ $aluno->email}}</td>
+                <td>
+                    <a href="{{route('aluno.atualizar', $aluno->id)}}">Atualizar</a>
+                </td>
                 <td></td>
             </tr>
         @empty
