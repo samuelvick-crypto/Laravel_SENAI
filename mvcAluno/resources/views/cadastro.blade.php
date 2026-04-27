@@ -3,44 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Alunos</title>
+    <title>Cadastro Turma</title>
 </head>
 <body>
-    <h1>Cadastro Alunos</h1>
+    <h1>Cadastro Turma</h1>
 
     @if(session('success'))
         <p style="color:green">{{ session('success')}}</p>
     @endif
 
-    <form action="{{route('aluno.salvar') }}" method="POST">
+    <form action="{{route('turma.salvar') }}" method="POST">
         @csrf
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" id="nome" placeholder="Nome..."
-            require value="{{ old('nome') }}"
+        <label for="numSala">numSala: </label>
+        <input type="number" name="numSala" id="numSala" placeholder="Numero da sala..."
+            require value="{{ old('numSala') }}"
         >
         <br><br>
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email" placeholder="Email..."
-            required value="{{ old('email')}}"
+        <label for="serie">Serie: </label>
+        <input type="text" name="serie" id="serie" placeholder="Serie..."
+            required value="{{ old('serie')}}"
         >
-
-        <br><br>
-        <label for="turma_id">ID DA TURMA: </label>
-        {{-- <input type="number" name="turma_id" id="turma_id" placeholder="ID TURMA..."
-            value="{{ old('turma_id')}}"
-        > --}}
-        <select name="turma_id" id="turma_id">
-            @foreach ($turmas as $turma)
-                <option value="{{$turma->id}}">{{$turma->serie}}</option>
-            @endforeach
-        </select>
-
-        {{-- <select name="turma_id" id="turma_id">
-            <option value="1">1EM</option>
-            <option value="2">3EM</option>
-            <option value="3">2EM</option>
-            <option value="4">9EF</option>
-        </select> --}}
 
         <input type="submit" value="Cadastrar">
     </form>
